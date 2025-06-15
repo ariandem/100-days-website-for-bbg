@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy 100 Days, Babygirl!</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #ffeef2;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #e91e63;
+    }
+    .timer {
+      font-size: 1.2rem;
+      margin: 1rem 0;
+    }
+    .slideshow {
+      width: 90%;
+      max-width: 400px;
+      margin: 2rem auto;
+    }
+    .slideshow img {
+      width: 100%;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .message {
+      font-size: 1.1rem;
+      margin-top: 2rem;
+      max-width: 600px;
+      animation: fadeIn 3s ease-in forwards;
+      opacity: 0;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    iframe {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Happy 100 Days, My Babygirl 💖</h1>
+  <div class="timer" id="timer"></div>
+
+  <div class="slideshow">
+    <img id="slide" src="https://via.placeholder.com/400x250?text=Your+Photo+1" alt="Slideshow">
+  </div>
+
+  <div class="message">
+    <p>Thank you for being the bestest girlfriend in the whole wide world.<br>
+    These 100 days with you have meant <strong>everything</strong> to me — filled with love, laughter, and the kind of happiness I never thought I’d find.<br><br>
+    Even with the distance, you’ve made me feel so loved and so lucky every single day.<br>
+    I love you sooo sooo sooo much baby, more than I can ever say.<br><br>
+    Thank you for being you — so beautiful, kind, caring, and mine.<br>
+    Here’s to 100 days… and to the millions more we’ll share together. 💕</p>
+  </div>
+
+  <!-- YouTube audio embed (hidden) -->
+  <iframe width="0" height="0"
+    src="https://www.youtube.com/embed/eLJarG0TTPI?autoplay=1&loop=1&playlist=eLJarG0TTPI"
+    frameborder="0"
+    allow="autoplay">
+  </iframe>
+
+  <script>
+    // Timer
+    const startDate = new Date('2024-03-07T00:00:00'); // <- Set your real start date here
+    const timerEl = document.getElementById('timer');
+
+    function updateTimer() {
+      const now = new Date();
+      const diff = now - startDate;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      timerEl.textContent = `We've been together for ${days} days, ${hours} hrs, ${minutes} mins, and ${seconds} secs ❤️`;
+    }
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
+
+    // Slideshow
+    const slides = [
+      'https://via.placeholder.com/400x250?text=Your+Photo+1',
+      'https://via.placeholder.com/400x250?text=Your+Photo+2',
+      'https://via.placeholder.com/400x250?text=Your+Photo+3'
+    ];
+    let currentSlide = 0;
+    const slideImg = document.getElementById('slide');
+
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      slideImg.src = slides[currentSlide];
+    }, 3000);
+  </script>
+</body>
+</html>
